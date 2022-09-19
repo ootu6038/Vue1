@@ -1,0 +1,57 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>transitionのアニメーション</title>
+        <style>
+            .v-enter-active,
+            .v-leave-active{
+                /*アニメーションの時間、イージングなどを設定*/
+                transition:opacity 500ms ease-out;
+            }
+            /*フェードイン*/
+            .v-enter{
+                /*フェードインの初期状態*/
+                opacity: 0;
+            }
+            .v-enter-to{
+                /*フェードインの終了状態*/
+                opacity: 1;
+            }
+            /*フェードアウト*/
+            .v-leave{
+                /*フェードアウト初期状態*/
+                opacity: 1;
+            }
+            .v-leave-to{
+                /*フェードアウトの終了状態*/
+                opacity: 0;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="app">
+            <button @click="isShown = !isShown">表示の切り替え</button>
+            <transition>
+                <p v-show="isShown">Hello,world!</p>
+            </transition>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+        <script>
+            new Vue({
+                el:'#app',
+                data:function(){
+                    return {
+                        isShown:false
+                    }
+                }
+            })
+        </script>
+    </body>
+
+    </html>

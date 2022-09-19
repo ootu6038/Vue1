@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>My Page</h1>
+        <p>
+            <router-link to="/page1">ページ1を見る</router-link>
+            <router-link to="/page2">ページ2を見る</router-link>
+        </p>
+        <router-view></router-view>
+    </div>
+    <script src="https://unpkg.com/vue@2.5.17"></script>
+    <script src="https://unpkg.com/vue-router@3.0.1"></script>
+    <script>
+        const Page_1 = { template: '<div>ページ１</div>' }
+        const Page_2 = { template: '<div>ページ２</div>' }
+        const NotFound = { template: '<div>このページは存在しません</div>' }
+
+        const routes = [
+            { path: '/page1', component: Page_1 },
+            { path: '/page2', component: Page_2 },
+            { path: '*', component: NotFound },
+        ]
+
+        const router = new VueRouter({
+            routes: routes
+        })
+
+        new Vue({
+            el: "#app",
+            router
+        })</script>
+</body>
+
+</html>

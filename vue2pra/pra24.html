@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <p>ローカルコンポーネントの呼び出し</p>
+
+        <local-hello></local-hello>
+
+        <eng-hello></eng-hello>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+    <script>
+        var localComp = {
+            template: '<p>{{ name }}さん。こんにちは！</p>',
+            data() {
+                return {
+                    name: "AAA"
+                }
+            }
+        }
+
+        var engHello = {
+            template: '<p>Hello {{ name }}!</p>',
+            data() {
+                return {
+                    name: "BBB"
+                }
+            }
+        }
+
+
+        var app = new Vue({
+            el: '#app',
+            components: {
+                'local-hello': localComp,
+                'eng-hello': engHello
+            }
+        })
+    </script>
+</body>
+
+</html>

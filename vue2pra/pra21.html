@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <div>
+            <p>■methodsを使ったコンポーネント</p>
+            <methods-vue></methods-vue>
+        </div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+    <script>
+        Vue.component('methods-vue', {
+    template: '<p @click="sayHi">挨拶: {{ output }}</p>',
+    data(){
+        return {
+            name: "AAAさん",
+            hello: "「こんにちは！」",
+            output: ""
+        }
+    },
+    methods:{
+      sayHi(){
+        this.output = this.name + this.hello
+      }
+    }
+})
+
+
+var app = new Vue({
+    el:'#app'
+})
+    </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <div>
+            <p>■グローバルコンポーネント</p>
+            <hello-component></hello-component>
+        </div>
+        <br>
+        <hr>
+        <div>
+            <p>■dataを使ったコンポーネント</p>
+            <data-vue></data-vue>
+        </div>
+        <br>
+        <hr>
+        <div>
+            <p>■ローカルコンポーネント</p>
+            <local-component></local-component>
+        </div>
+        <br>
+        <hr>
+        <div>
+            <p>■ボタンカウンター</p>
+            <button-counter></button-counter>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+    <script>
+        //■グローバルコンポーネント
+        Vue.component('hello-component', {
+            template: '<p>Hello World</p>',
+        })
+        //■dataを使ったコンポーネント
+        Vue.component('data-vue', {
+            template: '<p>{{mes1}} {{mes2}}</p>',
+            data() {
+                return {
+                    mes1: "AAAさん。",
+                    mes2: "こんにちは",
+                }
+            }
+        })
+        //■ボタンカウンターコンポーネント
+        Vue.component('button-counter', {
+            data() {
+                return {
+                    count: 0
+                }
+            },
+            template: '<div><span>Please Click: <button v-on:click="count++">{{count}}</button></span></div>'
+        })
+        //■ローカルコンポーネント
+        var localComponent = {
+            template: '<p>ローカルからこんにちは！</p>'
+        }
+        var app = new Vue({
+            el: '#app',
+            components: {
+                'local-component': localComponent
+            }
+        })
+    </script>
+</body>
+
+</html>

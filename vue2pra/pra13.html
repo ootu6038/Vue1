@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js</title>
+</head>
+
+<body>
+    <div class="fruits-list">
+        <fruits-list-title></fruits-list-title>
+        <fruits-list-description></fruits-list-description>
+        <fruits-list-table></fruits-list-table>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script>
+        Vue.component('fruits-list-title', {
+            template: '<h1>フルーツ一覧</h1>'
+        })
+        Vue.component('fruits-list-description', {
+            template: '<p>季節の代表的なフルーツ一覧</p>'
+        })
+        Vue.component('fruits-list-table', {
+            template: `
+            <table>
+                <tr>
+                    <th>季節</th>
+                    <th>フルーツ</th>
+                    </tr>
+                    <tr>
+                        <td>春</td>
+                        <td>いちご</td>
+                        </tr>
+                    <tr>
+                        <td>夏</td>
+                        <td>スイカ</td>
+                        </tr>
+                    <tr>
+                        <td>秋</td>
+                        <td>ぶどう</td>
+                        </tr>
+                    <tr>
+                        <td>冬</td>
+                        <td>みかん</td>
+                        </tr>
+                        </table>
+`
+        })
+//......Vueのマウント
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <p>以下でVueコンポーネントを呼び出しています</p>
+
+        <hello-vue></hello-vue>
+
+
+        <p>以下でも呼び出します。</p>
+
+        <hello-vue></hello-vue>
+
+        <p>3回目の呼び出し</p>
+        <hello-vue></hello-vue>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+    <script>
+        Vue.component('hello-vue', {
+            template: `
+     <dl>
+        <dt>AAA</dt>
+        <dt>BBB</dt>
+
+         <hr>
+        <dt>111</dt>
+        <dt>222</dt>
+      </dl>`,
+        })
+
+
+        var app = new Vue({
+            el: '#app'
+        })
+    </script>
+</body>
+
+</html>
